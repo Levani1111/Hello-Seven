@@ -25,8 +25,8 @@ Template Name: Archives
             </div>
         <?php endwhile; ?>
         <div class="pagination py-1 mb-5">
-             <?php next_posts_link( 'Older Entries >>', $loop->max_num_pages ); ?>
-             <?php previous_posts_link( ' << Newer Entries' ); ?>
+             <?php next_posts_link( 'Next >>', $loop->max_num_pages ); ?>
+             <?php previous_posts_link( ' << Previous' ); ?>
         </div>
      </div>
 </section>
