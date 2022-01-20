@@ -38,8 +38,8 @@ function projects_post_type() {
         'public' => true,
         'has_archive' => true,
         'menu_icon' => 'dashicons-analytics',
+        'menu_position' => 5,
         'supports' => array( 'title', 'editor', 'thumbnail'),
-        'rewrite' => array('slug' => 'my-Projects'),
     );
     register_post_type( 'projects', $args);
       
