@@ -12,10 +12,9 @@ Template Name: Archives
                 $loop = new WP_Query( array( 
                     'post_type' => 'projects', 
                     'posts_per_page' => 6,
-                    'paged' => $paged
+                    'paged' => $paged,
                     ) ); 
                     while ( $loop->have_posts() ) : $loop->the_post(); 
-                    
             ?>
             <div class="card mb-2">
                 <div class="card-body">
@@ -25,8 +24,8 @@ Template Name: Archives
             </div>
         <?php endwhile; ?>
         <div class="pagination py-1 mb-5">
-             <?php next_posts_link( 'Next >>', $loop->max_num_pages ); ?>
-             <?php previous_posts_link( ' << Previous' ); ?>
+             <?php next_posts_link( 'Next &raquo; ',  $loop->max_num_pages   ); ?>
+             <?php previous_posts_link( '&laquo; Previous' ); ?>
         </div>
      </div>
 </section>
