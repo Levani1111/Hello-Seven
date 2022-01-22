@@ -15,10 +15,6 @@ add_action( 'wp_enqueue_scripts', 'hello_seven_styles' );
 function hello_seven_js() {
     wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/js/bootstrap.min.js', array('jquery'), false, true );
     wp_enqueue_script( 'bootstrap' );
-    
-    // Load the chart JS file
-    wp_enqueue_script( 'chart', get_template_directory_uri() . '/js/chart.js', array('jquery'), false, true );
-    wp_enqueue_script( 'chart' );
 
 }
 add_action( 'wp_enqueue_scripts', 'hello_seven_js' );
@@ -128,3 +124,23 @@ function hs_get_projects() {
 }
 add_action( 'wp_ajax_nopriv_hs_get_projects', 'hs_get_projects' );
 add_action( 'wp_ajax_hs_get_projects', 'hs_get_projects' );
+ 
+// WordPress shortcode [hs_nice_chart] for chart.
+function hs_nice_chart_shortcode( $atts ) {
+    $a = shortcode_atts( array(
+        'labels' => '',
+        'data' => '',
+        'type' => '',
+        'options' => ''
+    ), $atts );
+    $labels = explode(',', $a['labels']);
+    $data = explode(',', $a['data']);
+    $url = get_template_directory_uri() . '/js/chart.js';
+    wp_enqueue_script( 'chart', $url, array('jquery'), false, true );
+    wp_localize_script( 'chart', 'chartJSContainer_data', array(
+        'labels' => $labels,
+        'data' => $data
+    ));
+    return '<canvas id="chartJSContainer"></canvas>';
+}
+add_shortcode( 'hs_nice_chart', 'hs_nice_chart_shortcode' );

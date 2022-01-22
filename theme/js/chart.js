@@ -28,5 +28,3 @@ var options = {
   
   var ctx = document.getElementById('chartJSContainer').getContext('2d');
   new Chart(ctx, options);
-  
-  

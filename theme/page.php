@@ -1,8 +1,8 @@
 <?php get_header(); ?>
 
-<section class="page-wrap py-2 mb-5">
+<section class="page-wrap mb-5">
     <div class="container">
-        <h1><?php the_title(); ?></h1>
+        <h1 class="title text-center py-5"><?php the_title(); ?></h1>
        <?php get_template_part('includes/section', 'content'); ?>
    </div>
 </section>
